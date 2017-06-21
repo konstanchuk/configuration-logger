@@ -1,0 +1,84 @@
+<?php
+
+/**
+ * Configuration Logger Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+
+?>
+<div id="configLogPopup" data-bind="scope:'configLogPopup'" class="config-log-popup">
+    <div data-bind="visible: visible">
+        <!-- ko if: configLog().length -->
+        <div class="conf-log-table">
+            <div class="conf-log-table-header">
+                <div class="item">
+                    <div class="value">
+                        <?php /* @noEscape */ echo __('Value') ?>
+                    </div>
+                    <div class="author">
+                        <?php /* @noEscape */ echo __('Author') ?>
+                    </div>
+                    <div class="action">
+                        <?php /* @noEscape */ echo __('Event') ?>
+                    </div>
+                    <div class="ip-address">
+                        <?php /* @noEscape */ echo __('From IP address') ?>
+                    </div>
+                    <div class="created-date">
+                        <?php /* @noEscape */ echo __('Date') ?>
+                    </div>
+                    <div class="actions">
+                        <?php /* @noEscape */ echo __('Actions') ?>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="foreach: configLog" class="config-log-list">
+                <div class="item">
+                    <!-- ko if: is_normal_value -->
+                    <div class="value" data-bind="text: value"></div>
+                    <!-- /ko -->
+                    <!-- ko if: !is_normal_value -->
+                    <div class="value"><i><?php /* @noEscape */ echo __('(object)') ?></i></div>
+                    <!-- /ko -->
+                    <div class="author" data-bind="text: author"></div>
+                    <div class="action" data-bind="text: action"></div>
+                    <div class="ip-address" data-bind="text: ip_address"></div>
+                    <div class="created-date" data-bind="text: created"></div>
+                    <div class="actions">
+                        <!-- ko if: can_restore -->
+                        <a href="#"
+                           data-bind="click: function(data, event) { $parent.restoreValue($data, $parent.selectedValue(), data, event); return false; }">
+                            <?php /* @noEscape */ echo __('restore') ?>
+                        </a>
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: configLog().length -->
+        <div class="conf-log-not-found">
+            <?php /* @noEscape */
+            echo __('The value have not changed.'); ?>
+        </div>
+        <!-- /ko -->
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#configLogPopup": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "configLogPopup": {
+                        "component": "konstanchuk/configLogPopup",
+                        "load_url": "<?php /* @noEscape */ echo $this->getUrl('configLog/load/index') ?>",
+                        "restore_url": "<?php /* @noEscape */ echo $this->getUrl('configLog/restore/index') ?>"
+                    }
+                }
+            }
+        }
+    }
+</script>

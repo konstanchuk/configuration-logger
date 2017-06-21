@@ -1,0 +1,79 @@
+/**
+ * Configuration Logger Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+.section-config td.value {
+  position: relative;
+}
+.conf-logger-icon {
+  position: absolute;
+  width: 17px;
+  height: 22px;
+  top: 31px;
+  right: 10px;
+  background-repeat: no-repeat;
+  background-image: url(../images/time.png);
+  background-size: 100%;
+  cursor: pointer;
+}
+.config-log-popup {
+  box-sizing: border-box;
+}
+.config-log-popup .conf-log-table {
+  max-width: 900px;
+  min-width: 830px;
+  width: 100%;
+  margin: 0 auto;
+}
+.config-log-popup .conf-log-table .item {
+  border-bottom: 1px solid #adadad;
+  padding: 5px 0;
+  font-size: 12px;
+}
+.config-log-popup .conf-log-table .item:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.config-log-popup .conf-log-table .item > div {
+  display: inline-block;
+  width: 100%;
+  padding: 0 5px;
+  vertical-align: top;
+  overflow: auto;
+}
+.config-log-popup .conf-log-table .item > div.value {
+  max-width: 30%;
+}
+.config-log-popup .conf-log-table .item > div.value i {
+  color: #00A5E3;
+}
+.config-log-popup .conf-log-table .item > div.author {
+  max-width: 19%;
+}
+.config-log-popup .conf-log-table .item > div.ip-address {
+  max-width: 15%;
+}
+.config-log-popup .conf-log-table .item > div.action {
+  max-width: 8%;
+}
+.config-log-popup .conf-log-table .item > div.created-date {
+  width: 15%;
+}
+.config-log-popup .conf-log-table .item > div.actions {
+  max-width: 8%;
+}
+.config-log-popup .conf-log-table .conf-log-table-header {
+  font-weight: bold;
+  background: #373330;
+  color: white;
+}
+.config-log-popup .conf-log-table .conf-log-table-header .item {
+  font-size: 14px;
+  vertical-align: middle;
+  border-bottom: 0;
+}
+.config-log-popup .conf-log-table .config-log-list .item:hover {
+  background-color: #e4dddd;
+}

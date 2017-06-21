@@ -1,0 +1,103 @@
+/**
+ * Configuration Logger Extension for Magento 2
+ *
+ * @author     Volodymyr Konstanchuk http://konstanchuk.com
+ * @copyright  Copyright (c) 2017 The authors
+ * @license    http://www.opensource.org/licenses/mit-license.html  MIT License
+ */
+
+@headerColorBg: #373330;
+@headerColor: white;
+@itemBorderColor: #adadad;
+@nthChildItemBg: #f2f2f2;
+
+.section-config {
+  td {
+    &.value {
+      position: relative;
+    }
+  }
+}
+
+.conf-logger-icon {
+  position: absolute;
+  width: 17px;
+  height: 22px;
+  top: 31px;
+  right: 10px;
+  background-repeat: no-repeat;
+  background-image: url(../images/time.png);
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.config-log-popup {
+  box-sizing: border-box;
+
+  .conf-log-table {
+    max-width: 900px;
+    min-width: 830px;
+    width: 100%;
+    margin: 0 auto;
+
+    .item {
+      border-bottom: 1px solid @itemBorderColor;
+      padding: 5px 0;
+      font-size: 12px;
+
+      &:nth-child(even) {
+        background-color: @nthChildItemBg;
+      }
+
+      & > div {
+        display: inline-block;
+        width: 100%;
+        padding: 0 5px;
+        vertical-align: top;
+        overflow: auto;
+
+        &.value {
+          max-width: 30%;
+          i {
+            color: #00A5E3;
+          }
+        }
+        &.author {
+          max-width: 19%;
+        }
+        &.ip-address {
+          max-width: 15%;
+        }
+        &.action {
+          max-width: 8%;
+        }
+        &.created-date {
+          width: 15%;
+        }
+        &.actions {
+          max-width: 8%;
+        }
+      }
+    }
+
+    .conf-log-table-header {
+      font-weight: bold;
+      background: @headerColorBg;
+      color: @headerColor;
+
+      .item {
+        font-size: 14px;
+        vertical-align: middle;
+        border-bottom: 0;
+      }
+    }
+
+    .config-log-list {
+      .item {
+        &:hover {
+          background-color: #e4dddd;
+        }
+      }
+    }
+  }
+}
